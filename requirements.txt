@@ -1,7 +1,8 @@
+1. Dependencies:
 pyttsx3==2.71
 PyAudio==0.2.11
 SpeechRecognition==3.8.1
 wikipedia==1.4.0
 
-change the directory path mentioned as music_dir and codePath to the specific folders where you store your music files and the destination address of your favourite code editor, respectively.
-
+2. Change the directory path mentioned as music_dir and codePath to the specific folders where you store your music files and the destination address of your favourite code editor, respectively.
+3. To get the executable file extract Zip file and open : dist\jarvis.exe
