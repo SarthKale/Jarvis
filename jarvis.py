@@ -58,19 +58,23 @@ def wishMe():
 #     print("Sir, C Drive or D Drive?")
 #     speak("Sir, C Drive or D Drive?")
 #     name = takeCommand().lower()
-#     if "d" in name: location.__add__("D:\\")
-#     elif "c" in name: location.__add__("C:\\Users\\SarthK")
+#     if "d" in name: 
+#         print(location)
+#         location.__add__("D:\\")
+#     elif "c" in name: 
+#         print(location)
+#         location.__add__("C:\\Users\\SarthK\\")
 #     while counter:
-#         print(os.listdir(location))
+#         print(location)
 #         print("Sir, which directory next?")
 #         speak("Sir, which directory next?")
 #         name = takeCommand()
 #         print(name)
 #         if "open" in name: 
+#             print(location)
 #             os.chdir(location)
 #         else:
 #             location = "\\".join([name])
-#     return location
                     
 def takeCommand():
     # This function takes microphone input from user and returns a string.
@@ -132,20 +136,20 @@ def execution():
         elif "open whatsapp" in query:
             webbrowser.open("https://web.whatsapp.com/")
 
-        elif "play music" or "play random track" or "play random song" in query:
-            music_dir = "D:\\Sarthak\\Music"
-            songs = os.listdir(music_dir)
-            num = random.randint(0,len(songs)-1)
-            print(songs)
-            os.startfile(os.path.join(music_dir, songs[num]))
+        # elif "play music" or "play random track" or "play random song" in query:
+        #     music_dir = "D:\\Sarthak\\Music"
+        #     songs = os.listdir(music_dir)
+        #     num = random.randint(0,len(songs)-1)
+        #     print(songs)
+        #     os.startfile(os.path.join(music_dir, songs[num]))
 
-        elif "music playlist" in query:
-            music_dir = "D:\\Sarthak\\Music"
-            playlist = os.listdir(music_dir)
-            print(playlist)
-            for track in playlist:
-                print(track)
-                os.startfile(os.path.join(music_dir, track))
+        # elif "music playlist" in query:
+        #     music_dir = "D:\\Sarthak\\Music"
+        #     playlist = os.listdir(music_dir)
+        #     print(playlist)
+        #     for track in playlist:
+        #         print(track)
+        #         os.startfile(os.path.join(music_dir, track))
 
         elif "time" in query:
             ctime = datetime.datetime.now().strftime(" %H : %M : %S ")
@@ -182,7 +186,6 @@ def execution():
         #     mode = takeCommand().lower()
         #     print(mode)
 
-        #     # paragraph(array), run(same formatted text)
         #     doc_dir = "C:\\Users\\SarthK\\Desktop"
         #     os.chdir(doc_dir)
         #     if "read" or "r" in mode:
