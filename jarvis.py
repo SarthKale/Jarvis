@@ -7,15 +7,37 @@ import smtplib
 import os
 import random
 
+"""
+This program is a self managing personal assistance bot for a windows PC, that operates on voice commands and responds verbally.
+This program refers to itself as Jarvis and automate the following tasks:
+1. It can open Google, WhatsApp and StackOverflow websites in the browser.
+2. It can directly search and read from the Wikipedia page for the subject asked.
+3. It can play any random music to surprise you and can also play the entire playlist.
+4. It can tell/show current Date and Time.
+5. It can Shutdown or Restart the Computer on itself.
+6. It can autosend a dictated email to any email-id if you have a gmail id.
+7. It can also open VS Code on it's own when commanded accordingly.
+"""
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
 def speak(audio):
+    """
+    This function provides the bot with the ability of speech or makes bot speak.
+    Variables:
+        1. engine - It is an pyttsx3 object that allows the features of narrating a string
+        2. audio - The string that the Jarvis bot narrates during the execution of various tasks.
+    """
     engine.say(audio)
     engine.runAndWait()
 
 def wishMe():
+    """
+    This function allows us recognize that bot has began functioning as via this function it greets us.
+    Variables:
+        1. hour - It holds the value of current time in hours.
+    """
     hour = int(datetime.datetime.now().hour)
     if hour >= 0 and hour < 6:
         speak("It's sleep time sir, please go to bed")
@@ -51,7 +73,7 @@ def wishMe():
 #     return location
                     
 def takeCommand():
-    # It takes microphone input from user and returns string.
+    # This function takes microphone input from user and returns a string.
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening.... ")
@@ -70,14 +92,22 @@ def takeCommand():
     return query
 
 def sentMail(to, content):
+    """
+    This function provides our personal assistance bot with the mail sending details and facility.
+    """
     server = smtplib.SMTP("smtp.gmail.com", 587)
     server.ehlo()
     server.starttls()
-    server.login("sarthak.kale12@gmail.com", "shajapur38312")
-    server.sendmail("sarthak.kale12@gmail.com", to, content)
+    server.login("abc@gmail.com", "#####")
+    server.sendmail("abc@gmail.com", to, content)
     server.close()
 
 def execution():
+    """
+    This function provides operates the automation of Jarvis and is used to perform all the above mentioned jobs.
+    Variables:
+        query(String) - It holds the command given by the user.
+    """
     while True:
         query = takeCommand().lower()
 
@@ -161,11 +191,10 @@ def execution():
         #         speak("Sir, what is the name of the document?")
         #         name = takeCommand().lower()
         #         print(name)
-        #         f = open("a.docx")
-        #         content = f.read()
-        #         print(content)
-        #         speak(content)
-        #         f.close()
+        #         with open("a.docx") as f:
+        #             content = f.read()
+        #             print(content)
+        #             speak(content)
 
         #     elif "write" or "w" in mode:
         #         print("write mode selected")
@@ -174,18 +203,17 @@ def execution():
         #         speak("What should I name the file?")
         #         name = takeCommand().lower()
         #         print(name)
-        #         f = open(".".join([name, "docx"]), "w")
-        #         while counter:
-        #             print("What should I add? Or say 'E' to save and exit.")
-        #             speak("What should I add? Or say 'E' to save and exit.")
-        #             phrase = takeCommand().lower()
-        #             if phrase == "e": 
-        #                 counter = False
-        #             else:
-        #                 print(phrase)
-        #                 phrase.replace("new line", "\n")
-        #                 f.write(phrase)
-        #         f.close()
+        #         with open(".".join([name, "docx"]), "w") as f:
+        #            while counter:
+        #                print("What should I add? Or say 'E' to save and exit.")
+        #                speak("What should I add? Or say 'E' to save and exit.")
+        #                phrase = takeCommand().lower()
+        #                if phrase == "e": 
+        #                    counter = False
+        #                else:
+        #                    print(phrase)
+        #                    phrase.replace("new line", "\n")
+        #                    f.write(phrase)
 
         #     elif "append" or "add" or "a" in mode:
         #         print("write mode selected")
@@ -194,19 +222,18 @@ def execution():
         #         speak("Sir, what is the name of the document?")
         #         name = takeCommand().lower()
         #         print(name)
-        #         f = open(".".join([name, "docx"]), "a")
-        #         content = f.read()
-        #         while counter:
-        #             print("What should I add? Or say 'E' to save and exit.")
-        #             speak("What should I add? Or say 'E' to save and exit.")
-        #             phrase = takeCommand().lower()
-        #             if phrase == "e": 
-        #                 counter = False
-        #             else:
-        #                 phrase.replace("new line", "\n")
-        #                 print(phrase)
-        #                 f.write(phrase)
-        #         f.close()
+        #         with open(".".join([name, "docx"]), "a") as f:
+        #            content = f.read()
+        #            while counter:
+        #                print("What should I add? Or say 'E' to save and exit.")
+        #                speak("What should I add? Or say 'E' to save and exit.")
+        #                phrase = takeCommand().lower()
+        #                if phrase == "e": 
+        #                    counter = False
+        #                else:
+        #                    phrase.replace("new line", "\n")
+        #                    print(phrase)
+        #                    f.write(phrase)
 
         elif "mail" or "email" in query:
             try:
