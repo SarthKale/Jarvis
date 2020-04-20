@@ -136,20 +136,20 @@ def execution():
         elif "open whatsapp" in query:
             webbrowser.open("https://web.whatsapp.com/")
 
-        # elif "play music" or "play random track" or "play random song" in query:
-        #     music_dir = "D:\\Sarthak\\Music"
-        #     songs = os.listdir(music_dir)
-        #     num = random.randint(0,len(songs)-1)
-        #     print(songs)
-        #     os.startfile(os.path.join(music_dir, songs[num]))
+        elif "play music" or "play random track" or "play random song" in query:
+            music_dir = "D:\\Sarthak\\Music"
+            songs = os.listdir(music_dir)
+            num = random.randint(0,len(songs)-1)
+            print(songs)
+            os.startfile(os.path.join(music_dir, songs[num]))
 
-        # elif "music playlist" in query:
-        #     music_dir = "D:\\Sarthak\\Music"
-        #     playlist = os.listdir(music_dir)
-        #     print(playlist)
-        #     for track in playlist:
-        #         print(track)
-        #         os.startfile(os.path.join(music_dir, track))
+        elif "music playlist" in query:
+            music_dir = "D:\\Sarthak\\Music"
+            playlist = os.listdir(music_dir)
+            print(playlist)
+            for track in playlist:
+                print(track)
+                os.startfile(os.path.join(music_dir, track))
 
         elif "time" in query:
             ctime = datetime.datetime.now().strftime(" %H : %M : %S ")
@@ -238,21 +238,21 @@ def execution():
         #                    print(phrase)
         #                    f.write(phrase)
 
-        elif "mail" or "email" in query:
-            try:
-                print("Sir, what should I send?")
-                speak("Sir, what should I send?")
-                content = takeCommand()
-                print("Sir, the email Id please.... ")
-                speak("Sir, the emial Id please")
-                to = takeCommand()
-                sentMail(to, content)
-                print("Email has been sent")
-                speak("Email has been sent!")
-            except Exception as e:
-                print(e)
-                speak("Pardon me Sir, I am unable to send this email.")
-                continue
+        # elif "mail" or "email" in query:
+        #     try:
+        #         print("Sir, what should I send?")
+        #         speak("Sir, what should I send?")
+        #         content = takeCommand()
+        #         print("Sir, the email Id please.... ")
+        #         speak("Sir, the emial Id please")
+        #         to = takeCommand()
+        #         sentMail(to, content)
+        #         print("Email has been sent")
+        #         speak("Email has been sent!")
+        #     except Exception as e:
+        #         print(e)
+        #         speak("Pardon me Sir, I am unable to send this email.")
+        #         continue
 
 if __name__ == "__main__":
     wishMe()
