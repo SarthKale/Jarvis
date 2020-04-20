@@ -125,7 +125,7 @@ def execution():
             speak(results)
             
         elif "open youtube" in query:
-            webbrowser.open("youtube.com")
+            webbrowser.open("https://www.youtube.com/")
 
         elif "open google" in query:
             webbrowser.open("https://www.google.com/")
