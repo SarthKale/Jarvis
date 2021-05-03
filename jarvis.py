@@ -52,30 +52,6 @@ def wishMe():
 
     speak("I am Jarvis. How may I help you?")
 
-# def dir_parser():
-#     counter = True
-#     location = ""
-#     print("Sir, C Drive or D Drive?")
-#     speak("Sir, C Drive or D Drive?")
-#     name = takeCommand().lower()
-#     if "d" in name: 
-#         print(location)
-#         location.__add__("D:\\")
-#     elif "c" in name: 
-#         print(location)
-#         location.__add__("C:\\Users\\SarthK\\")
-#     while counter:
-#         print(location)
-#         print("Sir, which directory next?")
-#         speak("Sir, which directory next?")
-#         name = takeCommand()
-#         print(name)
-#         if "open" in name: 
-#             print(location)
-#             os.chdir(location)
-#         else:
-#             location = "\\".join([name])
-                    
 def takeCommand():
     # This function takes microphone input from user and returns a string.
     r = sr.Recognizer()
@@ -143,14 +119,6 @@ def execution():
             print(songs)
             os.startfile(os.path.join(music_dir, songs[num]))
 
-        elif "music playlist" in query:
-            music_dir = "D:\\Sarthak\\Music"
-            playlist = os.listdir(music_dir)
-            print(playlist)
-            for track in playlist:
-                print(track)
-                os.startfile(os.path.join(music_dir, track))
-
         elif "time" in query:
             ctime = datetime.datetime.now().strftime(" %H : %M : %S ")
             print(ctime)
@@ -175,84 +143,22 @@ def execution():
             codePath = "D:\\Microsoft VS Code\\Code.exe"
             os.startfile(codePath)
 
-        # elif "open folder" or "open directory" in query:
-        #     loc = dir_parser()
-        #     print(loc)
 
-        # elif "document" or "ms word" or "word file" in query:
-        #     print("Sir, do you want to read the file or write a file or append in a file?")
-        #     speak("Sir, do you want to read the file or write a file or append in a file?")
-        #     print("set mode")
-        #     mode = takeCommand().lower()
-        #     print(mode)
-
-        #     doc_dir = "C:\\Users\\SarthK\\Desktop"
-        #     os.chdir(doc_dir)
-        #     if "read" or "r" in mode:
-        #         print("read mode selected")
-        #         print("Sir, what is the name of the document?")
-        #         speak("Sir, what is the name of the document?")
-        #         name = takeCommand().lower()
-        #         print(name)
-        #         with open("a.docx") as f:
-        #             content = f.read()
-        #             print(content)
-        #             speak(content)
-
-        #     elif "write" or "w" in mode:
-        #         print("write mode selected")
-        #         counter = True
-        #         print("What should I name the file?")
-        #         speak("What should I name the file?")
-        #         name = takeCommand().lower()
-        #         print(name)
-        #         with open(".".join([name, "docx"]), "w") as f:
-        #            while counter:
-        #                print("What should I add? Or say 'E' to save and exit.")
-        #                speak("What should I add? Or say 'E' to save and exit.")
-        #                phrase = takeCommand().lower()
-        #                if phrase == "e": 
-        #                    counter = False
-        #                else:
-        #                    print(phrase)
-        #                    phrase.replace("new line", "\n")
-        #                    f.write(phrase)
-
-        #     elif "append" or "add" or "a" in mode:
-        #         print("write mode selected")
-        #         counter = True
-        #         print("Sir, what is the name of the document?")
-        #         speak("Sir, what is the name of the document?")
-        #         name = takeCommand().lower()
-        #         print(name)
-        #         with open(".".join([name, "docx"]), "a") as f:
-        #            content = f.read()
-        #            while counter:
-        #                print("What should I add? Or say 'E' to save and exit.")
-        #                speak("What should I add? Or say 'E' to save and exit.")
-        #                phrase = takeCommand().lower()
-        #                if phrase == "e": 
-        #                    counter = False
-        #                else:
-        #                    phrase.replace("new line", "\n")
-        #                    print(phrase)
-        #                    f.write(phrase)
-
-        # elif "mail" or "email" in query:
-        #     try:
-        #         print("Sir, what should I send?")
-        #         speak("Sir, what should I send?")
-        #         content = takeCommand()
-        #         print("Sir, the email Id please.... ")
-        #         speak("Sir, the emial Id please")
-        #         to = takeCommand()
-        #         sentMail(to, content)
-        #         print("Email has been sent")
-        #         speak("Email has been sent!")
-        #     except Exception as e:
-        #         print(e)
-        #         speak("Pardon me Sir, I am unable to send this email.")
-        #         continue
+        elif "mail" or "email" or "e-mail" in query:
+            try:
+                print("Sir, what should I send?")
+                speak("Sir, what should I send?")
+                content = takeCommand()
+                print("Sir, the email Id please.... ")
+                speak("Sir, the emial Id please")
+                to = takeCommand()
+                sentMail(to, content)
+                print("Email has been sent")
+                speak("Email has been sent!")
+            except Exception as e:
+                print(e)
+                speak("Pardon me Sir, I am unable to send this email.")
+                continue
 
 if __name__ == "__main__":
     wishMe()
